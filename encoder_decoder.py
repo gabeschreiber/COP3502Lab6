@@ -7,7 +7,11 @@ def encode(password):
     while run:
         try:
             for num in raw_password:
-                encoded_password.append(int(num) + 3)
+                new_num = int(num) + 3
+                if new_num > 9:
+                    encoded_password.append(new_num - 10)
+                else:
+                    encoded_password.append(new_num)
             run = False
         except ValueError:
                 encoded_password.clear()
@@ -22,6 +26,7 @@ def main():
     while user_input != 3:
         if user_input == 1:
             encoded_password = encode(input('Please enter your password to encode: '))
+            print(encoded_password)
         elif user_input == 2:
             # FIXME add call to decode function
             print()
