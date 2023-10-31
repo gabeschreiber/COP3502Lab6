@@ -19,14 +19,19 @@ def encode(password):
     print('Your password has been encoded and stored!\n')
     return encoded_password
 
+# Andrea Louis
 def decode(encoded_password):
     raw_password = list(encoded_password)
     decoded_password = ''
+    # the for loop iterates through the numbers and converts it back to the original string entered by the user
     for num in raw_password:
+        # the string is changed to an integer and then subtracted by three to be stored in the variable
         new_num = int(num) - 3
         if new_num < 0:
+            # 10 is added to make sure it is the valid digit converted within the range
             decoded_password += str(new_num + 10)
         else:
+            # the new_num variable is changed to a string
             decoded_password += str(new_num)
     return decoded_password
 
