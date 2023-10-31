@@ -19,6 +19,16 @@ def encode(password):
     print('Your password has been encoded and stored!\n')
     return encoded_password
 
+def decode(encoded_password):
+    raw_password = list(encoded_password)
+    decoded_password = ''
+    for num in raw_password:
+        new_num = int(num) - 3
+        if new_num < 0:
+            decoded_password += str(new_num + 10)
+        else:
+            decoded_password += str(new_num)
+    return decoded_password
 
 def main():
     print('Menu\n' + ('-' * 13) + '\n1. Encode\n2. Decode\n3. Quit\n')
@@ -27,7 +37,7 @@ def main():
         if user_input == 1:
             encoded_password = encode(input('Please enter your password to encode: '))
         elif user_input == 2:
-            # FIXME add call to decode function
+            print(f'The encoded password is {encoded_password}, and the original password is {decode(encoded_password)}.')
             print()
         print('Menu\n' + ('-' * 13) + '\n1. Encode\n2. Decode\n3. Quit\n')
         user_input = int(input('Please enter an option: '))
